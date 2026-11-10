@@ -1,0 +1,202 @@
+/* ==========================================================
+   CV – DOVONON Sewanou Brave Loveson Prince
+   Une colonne, lisible en 10 secondes, imprimable en PDF
+   ========================================================== */
+
+:root {
+  --fond: #e9edf1;
+  --papier: #ffffff;
+  --encre: #17212b;
+  --encre-douce: #4a5866;
+  --accent: #0b5c8a;
+  --accent-pale: #eaf3f9;
+  --trait: #d5dde4;
+
+  --police-titre: "Georgia", "Times New Roman", serif;
+  --police-texte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--fond);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 3rem 3.25rem;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  font-size: 1rem;
+  line-height: 1.65;
+  border-top: 6px solid var(--accent);
+  box-shadow: 0 1px 3px rgba(23, 33, 43, 0.12);
+}
+
+/* ---------- En-tête ---------- */
+
+header {
+  margin: 0 0 0.35rem;
+}
+
+.titre {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-family: var(--police-titre);
+  font-size: clamp(1.75rem, 4.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--encre);
+}
+
+.description p {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--encre-douce);
+}
+
+#description {
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--trait);
+}
+
+/* ---------- Sections ---------- */
+
+section {
+  margin-top: 2rem;
+}
+
+#description {
+  margin-top: 0;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--accent);
+  font-family: var(--police-titre);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--encre);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.4;
+  color: var(--encre);
+}
+
+article {
+  margin-top: 1.25rem;
+}
+
+article:first-of-type {
+  margin-top: 0;
+}
+
+article p {
+  margin: 0.3rem 0 0;
+}
+
+.meta {
+  font-size: 0.92rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ---------- Listes ---------- */
+
+article ul {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+}
+
+article li {
+  margin-bottom: 0.4rem;
+}
+
+article li::marker {
+  color: var(--accent);
+}
+
+/* ---------- Compétences ---------- */
+
+.tags {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.6rem 0.9rem;
+  background: var(--accent-pale);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.97rem;
+}
+
+/* ---------- Tablette / mobile ---------- */
+
+@media (max-width: 720px) {
+  body {
+    margin: 0;
+    padding: 1.75rem 1.25rem;
+    box-shadow: none;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- Impression / export PDF ---------- */
+
+@page {
+  size: A4;
+  margin: 1.5cm;
+}
+
+@media print {
+  html {
+    background: #fff;
+  }
+
+  body {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  .tags li {
+    background: none;
+    border-left: 2px solid var(--accent);
+  }
+}
